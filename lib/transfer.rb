@@ -12,6 +12,10 @@ class Transfer
     @sender.valid? && @receiver.valid?
   end
 
+  def transfer_valid?
+    @sender.balance - @amount > 0
+  end
+
   def execute_transaction
     binding.pry
     if @sender.valid?
