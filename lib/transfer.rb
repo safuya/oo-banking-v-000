@@ -17,7 +17,6 @@ class Transfer
   end
 
   def execute_transaction
-    binding.pry
     if transfer_valid?
       @sender.withdraw(@amount) unless @status == 'complete'
       @receiver.deposit(@amount) unless @status == 'complete'
