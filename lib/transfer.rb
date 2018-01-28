@@ -13,8 +13,8 @@ class Transfer
   end
 
   def execute_transaction
-    @sender.withdraw(@amount)
-    @receiver.deposit(@amount)
+    @sender.withdraw(@amount) unless @status == 'complete'
+    @receiver.deposit(@amount) unless @status == 'complete'
     @status = 'complete'
   end
 
